@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Grid arr={blah}/>
-      <Modal modalActive={true}/>
+      <Modal modalActive={false}/>
     </div>
   );
 }

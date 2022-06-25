@@ -5,7 +5,7 @@ const Grid = (props) => {
   return (
     <div className={styles.grid}>
       {props.arr.data.map((s) => (
-        <div id={`s${s.key}`}></div>
+        <div id={`s${s.key}`} onClick={props}></div>
       ))}
     </div>
   );
