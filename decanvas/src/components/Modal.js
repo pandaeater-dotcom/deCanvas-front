@@ -3,15 +3,19 @@ import styles from "../styles/Modal.module.css";
 import ColorSelect from "./ColorSelect";
 import ConnectWallet from "../backend/connectWallet";
 
-const Modal = ({ modalActive, passSquareColor }) => {
+const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
   let color = "";
   const getColor = (c) => {
     color = c;
   };
 
-  const buttonClickHandler = () => {
+  const colorSelectHandler = () => {
     passSquareColor(color);
   };
+
+  const backButtonHandler = () => {
+    passModalBack(false);
+  }
 
   return (
     <div className={`${styles.popup} ${modalActive && styles.active}`}>
@@ -20,11 +24,11 @@ const Modal = ({ modalActive, passSquareColor }) => {
         <div className={styles.styling}>
           <h1>Pick a color</h1>
           <ColorSelect passColor={getColor} className={styles.colorSelector} />
-          {/* <button onClick={buttonClickHandler}></button> */}
           <ConnectWallet
-            onClick={buttonClickHandler}
+            onClick={colorSelectHandler}
             className={styles.button}
           />
+          <button onClick={backButtonHandler}>Back</button>
         </div>
       </div>
     </div>

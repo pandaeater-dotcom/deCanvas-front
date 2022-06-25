@@ -16,12 +16,12 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const docData = {
-  id: 0,
+  id: 18186,
   color: '#ffffff'
 };
 
-for (let i = 0; i < 40000; i++) {
-    await setDoc(doc(db, "data", "one"), docData);
+for (let i = 18186; i < 40000; i++) {
+    await setDoc(doc(db, "squareData", `${i}`), docData);
     console.log(`uploading ${i}`);
     docData.id++;
 }

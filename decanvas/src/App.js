@@ -31,12 +31,20 @@ const App = () => {
     sqData.color = color;
   };
 
+  const getModalBack = (modalState) => {
+    setaAtivateModal(false);
+  };
+
   return (
     <div className="App">
       <Grid arr={blah} className="grid" passSquareID={getSquareID} />
-      <Modal modalActive={activateModal} passSquareColor={getSquareColor} />
+      <Modal
+        modalActive={activateModal}
+        passSquareColor={getSquareColor}
+        passModalBack={getModalBack}
+      />
     </div>
   );
-}
+};
 
 export default App;
