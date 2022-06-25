@@ -3,7 +3,7 @@ import Grid from "./components/Grid";
 import Modal from "./components/Modal";
 import "./App.css";
 
-function App() {
+const App = () => {
   const [activateModal, setaAtivateModal] = useState(false);
   const blah = {
     data: [
