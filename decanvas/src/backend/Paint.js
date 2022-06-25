@@ -15,7 +15,7 @@ const Paint = () => {
 
         let options = {
             fromBlock: 0,
-            address: ['address-1', 'address-2'],    //Only get events from specific addresses
+            address: [],    //Only get events from specific addresses
             topics: []
         };
 
