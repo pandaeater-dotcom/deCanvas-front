@@ -5,8 +5,7 @@ const Grid = (props) => {
 
   const squareClickHandler = (e) => {
     const sqID = e.target.id.substring(1);
-    const y = parseInt(sqID)/100;
-    const x = parseInt(sqID)%100;
+    props.passSquareID(sqID)
   }
 
   return (

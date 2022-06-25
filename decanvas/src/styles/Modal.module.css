@@ -1,3 +1,9 @@
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .popup .overlay {
     position: fixed;
     top: 0px;
@@ -15,8 +21,9 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     background-color: white;
-    width: 20%;
-    height: 10%;
+    border-radius: 15px;
+    min-width: fit-content;
+    min-height: fit-content;
     z-index: 2;
 }
 
@@ -27,4 +34,15 @@
 .popup.active .content {
     transform: translate(-50%, -50%) scale(1);
     transition: all 150ms ease-in-out;
+}
+
+.styling {
+    margin: auto;
+    flex-direction: column;
+    display: flex;
+    margin: 10px;
+}
+
+.colorPicker {
+    margin: 10px;
 }
