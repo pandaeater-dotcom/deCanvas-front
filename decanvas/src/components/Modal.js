@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/Modal.module.css";
 import ColorSelect from "./ColorSelect";
-import ConnectWallet from "../backend/connectWallet";
 
 const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
   let color = "";
@@ -12,6 +11,7 @@ const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
   const colorSelectHandler = () => {
     passSquareColor(color);
   };
+
 
   const backButtonHandler = () => {
     passModalBack(false);

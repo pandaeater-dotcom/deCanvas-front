@@ -1,10 +1,8 @@
-import React, { useState } from "react";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
 import "./App.css";
 
-const App = () => {
-  const [activateModal, setaAtivateModal] = useState(false);
+function App() {
   const blah = {
     data: [
       { key: 0 },
@@ -17,18 +15,6 @@ const App = () => {
       { key: 7 },
       { key: 8 },
     ],
-  };
-
-  const sqData = { x: "", y: "", color: "" };
-
-  const getSquareID = (id) => {
-    setaAtivateModal(true);
-    sqData.x = parseInt(id) / 100;
-    sqData.y = parseInt(id) % 100;
-  };
-
-  const getSquareColor = (color) => {
-    sqData.color = color;
   };
 
   const getModalBack = (modalState) => {
@@ -45,6 +31,6 @@ const App = () => {
       />
     </div>
   );
-};
+}
 
 export default App;
