@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-
-
+import { ethers } from "ethers";
+import data from './abi.json'
+import { getAddress } from "ethers/lib/utils.js";
 const ConnectWallet = () => {
     const [currentAccount, setCurrentAccount] = useState("");
 
@@ -50,15 +51,52 @@ const ConnectWallet = () => {
         }
     }
 
+    const Canvas = async () => {
+        try {
+            const { ethereum } = window;
+
+            if (ethereum) {
+
+                const provider = new ethers.providers.Web3Provider(ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                // const provider = new ethers.getDefaultProvider("https://polygon-mumbai.g.alchemy.com/v2/14P4Hn_rrP0FgmgvwI2ndrHR-xDRvghb")
+                const abi = data.abi;
+                //const wallet = ethers.Wallet.createRandom();
+                //const signer = provider.getSigner(currentAccount);
+                const signeraddress = signer.getAddress();
+                const CanvasContract = new ethers.Contract("0x4484b06AbEdebd1208d930433141BB9C1eC6fB7a", abi, signer);
+
+                let paintTxn = await CanvasContract.paint(15, 15);
+                console.log(`Transaction hash: ${paintTxn.hash}`);
+                const receipt = await paintTxn.wait()
+                const paintEvents = await CanvasContract.queryFilter('Paint',
+                    receipt.blockNumber,
+                    receipt.blockNumber
+                );
+                console.log(paintEvents);
+            } else {
+                console.log("Ethereum object doesn't exist!");
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
         checkIfWalletIsConnected();
     }, [])
 
     return (
-        !currentAccount && (
+        (<>
             <button className="CanvasButton" onClick={connectWallet}>
+                Connect Wallet
+            </button>
+            <button className="TransactionButton" onClick={Canvas}>
                 Paint
             </button>
+        </>
         )
     );
 

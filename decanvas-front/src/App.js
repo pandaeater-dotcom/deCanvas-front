@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Grid from "./components/Grid.js";
 import Modal from "./components/Modal.js";
 import "./App.css";
-import fs from 'fs';
+
 
 const App = () => {
   const [activateModal, setActivateModal] = useState(false);
@@ -40,7 +40,7 @@ const App = () => {
   return (
     <div className="App">
       <Grid arr={blah} className="grid" passSquareID={getSquareID} />
-      <Modal modalActive={activateModal} passSquareColor={getSquareColor} passModalBack={getModalBack}/>
+      <Modal modalActive={activateModal} passSquareColor={getSquareColor} passModalBack={getModalBack} />
     </div>
   );
 }
