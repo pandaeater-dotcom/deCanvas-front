@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import data from './abi.json'
 import { getAddress } from "ethers/lib/utils.js";
-const ConnectWallet = () => {
+const ConnectWallet = ({sqID, sqColor}) => {
     const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -67,7 +67,8 @@ const ConnectWallet = () => {
                 const signeraddress = signer.getAddress();
                 const CanvasContract = new ethers.Contract("0x4484b06AbEdebd1208d930433141BB9C1eC6fB7a", abi, signer);
 
-                let paintTxn = await CanvasContract.paint(15, 15);
+                let paintTxn = await CanvasContract.paint(parseInt(sqID), parseInt(sqColor));
+                console.log(sqID, sqColor);
                 console.log(`Transaction hash: ${paintTxn.hash}`);
                 const receipt = await paintTxn.wait()
                 const paintEvents = await CanvasContract.queryFilter('Paint',

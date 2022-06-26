@@ -3,9 +3,9 @@ import Grid from "./components/Grid.js";
 import Modal from "./components/Modal.js";
 import "./App.css";
 
-
 const App = () => {
   const [activateModal, setActivateModal] = useState(false);
+  const [id, setId] = useState('');
   const blah = {
     data: [
       { key: 0 },
@@ -20,29 +20,27 @@ const App = () => {
     ],
   };
 
-
-  const sqData = { x: "", y: "", color: "" };
+  const sqData = { id: "", color: "" };
 
   const getSquareID = (id) => {
     setActivateModal(true);
-    sqData.x = parseInt(id) / 100;
-    sqData.y = parseInt(id) % 100;
-  };
-
-  const getSquareColor = (color) => {
-    sqData.color = color;
+    setId(id)
   };
 
   const getModalBack = () => {
     setActivateModal(false);
-  }
+  };
 
   return (
     <div className="App">
       <Grid arr={blah} className="grid" passSquareID={getSquareID} />
-      <Modal modalActive={activateModal} passSquareColor={getSquareColor} passModalBack={getModalBack} />
+      <Modal
+        modalActive={activateModal}
+        passModalBack={getModalBack}
+        id={id}
+      />
     </div>
   );
-}
+};
 
 export default App;

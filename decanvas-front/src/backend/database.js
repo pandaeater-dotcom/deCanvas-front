@@ -47,7 +47,7 @@ const getData = async (docNum) => {
 
 const squareVals = {'data': []};
 
-for (let i = 10000; i < 20000; i++) {
+for (let i = 0; i < 10000; i++) {
     const x = await getData(i);
     squareVals.data.push(x)
     console.log(i);
