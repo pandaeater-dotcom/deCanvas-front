@@ -14,8 +14,8 @@ const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
   };
 
   const backButtonHandler = () => {
-    passModalBack();
-  };
+    passModalBack(false);
+  }
 
   return (
     <div className={`${styles.popup} ${modalActive && styles.active}`}>
