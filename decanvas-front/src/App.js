@@ -20,8 +20,6 @@ const App = () => {
     ],
   };
 
-  const sqData = { id: "", color: "" };
-
   const getSquareID = (id) => {
     setActivateModal(true);
     setId(id)

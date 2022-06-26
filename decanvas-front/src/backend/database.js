@@ -1,6 +1,5 @@
 import {initializeApp } from '@firebase/app';
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
-import fs from 'fs';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCKMufhwObJ-qyxntnfP7QnVaoHB3tfvr4",
@@ -16,16 +15,10 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-const docData = {
-    id: 18186,
-    color: '#ffffff'
-};
-
-// for (let i = 18186; i < 40000; i++) {
-//     await setDoc(doc(db, "squareData", `${i}`), docData);
-//     console.log(`uploading ${i}`);
-//     docData.id++;
-// }
+// const docData = {
+//     id: 18186,
+//     color: '#ffffff'
+// };
 
 const updateData = async (docNum, docData) => {
     await setDoc(doc(db, "squareData", docNum), docData);    
@@ -53,12 +46,14 @@ for (let i = 0; i < 10000; i++) {
     console.log(i);
 }
 
-fs.writeFileSync('db.json', JSON.stringify(squareVals.data), 'utf-8');
+// fs.writeFileSync('db.json', JSON.stringify(squareVals.data), 'utf-8');
 
 
-fs.readFile('./db.json', 'utf-8', (error, data) => {
-    console.log(JSON.parse(data));
-});
+// fs.readFile('./db.json', 'utf-8', (error, data) => {
+//     console.log(JSON.parse(data));
+// });
 
 // console.log(JSON.stringify(squareVals.data));
 // console.log(squareVals.data);
+
+export {updateData};

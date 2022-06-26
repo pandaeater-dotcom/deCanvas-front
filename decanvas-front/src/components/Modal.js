@@ -4,14 +4,17 @@ import ColorSelect from "./ColorSelect.js";
 import ConnectWallet from "../backend/connectWallet.js";
 
 const Modal = ({ modalActive, passModalBack, id }) => {
-    let colorStatic = "";
+    // let colorStatic = "";
     const [color, setColor] = useState('')
     const getColor = (c) => {
-        colorStatic = c;
+        // colorStatic = c;
+        setColor(c);
     };
 
     const colorSelectHandler = () => {
-        setColor(colorStatic);
+        // setColor(colorStatic);
+        // console.log(colorStatic);
+        // console.log(color);
     };
 
     const backButtonHandler = () => {
@@ -26,10 +29,10 @@ const Modal = ({ modalActive, passModalBack, id }) => {
                     <h1>Pick a color</h1>
                     <ColorSelect passColor={getColor} className={styles.colorSelector} />
                     <ConnectWallet
-                        onClick={colorSelectHandler}
-                        className={styles.button}
                         sqId={id}
                         sqColor={color}
+                        onClick={colorSelectHandler}
+                        className={styles.button}
                     />
                     <button onClick={backButtonHandler}>Back</button>
                 </div>

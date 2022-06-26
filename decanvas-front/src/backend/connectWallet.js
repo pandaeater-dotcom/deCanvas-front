@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import data from './abi.json'
 import { getAddress } from "ethers/lib/utils.js";
-const ConnectWallet = ({sqID, sqColor}) => {
+import { updateData } from "./database.js";
+
+const ConnectWallet = (props) => {
+    console.log(props.sqId);
+    console.log(props.sqColor)
     const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -67,8 +71,8 @@ const ConnectWallet = ({sqID, sqColor}) => {
                 const signeraddress = signer.getAddress();
                 const CanvasContract = new ethers.Contract("0x4484b06AbEdebd1208d930433141BB9C1eC6fB7a", abi, signer);
 
-                let paintTxn = await CanvasContract.paint(parseInt(sqID), parseInt(sqColor));
-                console.log(sqID, sqColor);
+                let paintTxn = await CanvasContract.paint(parseInt(props.sqId), parseInt(props.sqColor));
+                // console.log(sqID, sqColor);
                 console.log(`Transaction hash: ${paintTxn.hash}`);
                 const receipt = await paintTxn.wait()
                 const paintEvents = await CanvasContract.queryFilter('Paint',
@@ -76,6 +80,7 @@ const ConnectWallet = ({sqID, sqColor}) => {
                     receipt.blockNumber
                 );
                 console.log(paintEvents);
+                let update = await updateData(parseInt(props.sqId),parseInt(props.sqColor).toString(16));
             } else {
                 console.log("Ethereum object doesn't exist!");
             }
