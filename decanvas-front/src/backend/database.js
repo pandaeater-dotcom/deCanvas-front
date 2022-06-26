@@ -21,6 +21,7 @@ const db = getFirestore(app);
 // };
 
 const updateData = (docNum, docData) => {
+    console.log('test')
     setDoc(doc(db, "squareData", docNum), docData);    
 }
 

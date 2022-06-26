@@ -79,7 +79,7 @@ const ConnectWallet = (props) => {
                 );
                 console.log(paintEvents);
                 console.log(parseInt(props.sqColor).toString(16));
-                let update = await updateData(parseInt(props.sqId),parseInt(props.sqColor).toString(16));
+                await updateData(parseInt(props.sqId),parseInt(props.sqColor).toString(16));
                 props.passTransactionStatus(true);
             } else {
                 console.log("Ethereum object doesn't exist!");
