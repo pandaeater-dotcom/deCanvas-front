@@ -5,8 +5,7 @@ import { getAddress } from "ethers/lib/utils.js";
 import { updateData } from "./database.js";
 
 const ConnectWallet = (props) => {
-    // console.log(props.sqId);
-    // console.log(props.sqColor)
+    console.log(props)
     const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -70,9 +69,8 @@ const ConnectWallet = (props) => {
                 //const signer = provider.getSigner(currentAccount);
                 const signeraddress = signer.getAddress();
                 const CanvasContract = new ethers.Contract("0x4484b06AbEdebd1208d930433141BB9C1eC6fB7a", abi, signer);
-
+                console.log(props.sqId, props.sqColor);
                 let paintTxn = await CanvasContract.paint(parseInt(props.sqId), parseInt(props.sqColor));
-                // console.log(sqID, sqColor);
                 console.log(`Transaction hash: ${paintTxn.hash}`);
                 const receipt = await paintTxn.wait()
                 const paintEvents = await CanvasContract.queryFilter('Paint',
@@ -80,6 +78,7 @@ const ConnectWallet = (props) => {
                     receipt.blockNumber
                 );
                 console.log(paintEvents);
+                console.log(parseInt(props.sqColor).toString(16));
                 let update = await updateData(parseInt(props.sqId),parseInt(props.sqColor).toString(16));
                 props.passTransactionStatus(true);
             } else {

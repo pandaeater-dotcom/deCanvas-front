@@ -8,7 +8,7 @@ const App = () => {
   const [activateModal, setActivateModal] = useState(false);
   const [id, setId] = useState('');
   const [transaction, setTransaction] = useState(false);
-  const color = '';
+  let color = '';
   const blah = {
     data: [
       { key: 0 },

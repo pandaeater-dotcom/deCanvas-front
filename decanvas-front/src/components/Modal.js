@@ -34,7 +34,7 @@ const Modal = ({ modalActive, passModalBack, passSquareColor, id, passTransactio
                     <ColorSelect passColor={getColor} className={styles.colorSelector} />
                     <ConnectWallet
                         sqId={id}
-                        sqColor={color}
+                        sqColor={parseInt(color.substring(1), 16)}
                         passTransactionStatus={getTransactionStatus}
                         onClick={colorSelectHandler}
                         className={styles.button}
