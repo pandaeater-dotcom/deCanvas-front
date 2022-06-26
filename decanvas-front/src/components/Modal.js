@@ -1,16 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import styles from "../styles/Modal.module.css";
 import ColorSelect from "./ColorSelect.js";
 import ConnectWallet from "../backend/connectWallet.js";
 
-const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
-    let color = "";
+const Modal = ({ modalActive, passModalBack, id }) => {
+    let colorStatic = "";
+    const [color, setColor] = useState('')
     const getColor = (c) => {
-        color = c;
+        colorStatic = c;
     };
 
     const colorSelectHandler = () => {
-        passSquareColor(color);
+        setColor(colorStatic);
     };
 
     const backButtonHandler = () => {
@@ -27,6 +28,8 @@ const Modal = ({ modalActive, passSquareColor, passModalBack }) => {
                     <ConnectWallet
                         onClick={colorSelectHandler}
                         className={styles.button}
+                        sqId={id}
+                        sqColor={color}
                     />
                     <button onClick={backButtonHandler}>Back</button>
                 </div>
