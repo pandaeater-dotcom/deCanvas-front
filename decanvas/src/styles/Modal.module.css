@@ -25,6 +25,7 @@
     min-width: fit-content;
     min-height: fit-content;
     z-index: 2;
+    transition: all 150ms ease-in-out;
 }
 
 .popup.active .overlay {
