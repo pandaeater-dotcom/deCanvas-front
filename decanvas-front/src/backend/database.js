@@ -1,5 +1,6 @@
 import {initializeApp } from '@firebase/app';
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import fs from 'fs';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCKMufhwObJ-qyxntnfP7QnVaoHB3tfvr4",
@@ -35,9 +36,29 @@ const getData = async (docNum) => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists) {
-        console.log("document data: ", docSnap.data());
+        // console.log("document data: ", docSnap.data());
+        return docSnap.data();
+        // console.log(typeof docSnap.data);
     }
     else {
         console.log('shit');
     }
 }
+
+const squareVals = {'data': []};
+
+for (let i = 10000; i < 20000; i++) {
+    const x = await getData(i);
+    squareVals.data.push(x)
+    console.log(i);
+}
+
+fs.writeFileSync('db.json', JSON.stringify(squareVals.data), 'utf-8');
+
+
+fs.readFile('./db.json', 'utf-8', (error, data) => {
+    console.log(JSON.parse(data));
+});
+
+// console.log(JSON.stringify(squareVals.data));
+// console.log(squareVals.data);

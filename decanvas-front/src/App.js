@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Grid from "./components/Grid.js";
 import Modal from "./components/Modal.js";
 import "./App.css";
+import fs from 'fs';
 
 const App = () => {
   const [activateModal, setActivateModal] = useState(false);
@@ -18,6 +19,7 @@ const App = () => {
       { key: 8 },
     ],
   };
+
 
   const sqData = { x: "", y: "", color: "" };
 
