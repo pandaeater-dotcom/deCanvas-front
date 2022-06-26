@@ -21,16 +21,15 @@ const App = () => {
   };
 
 
-  const sqData = { x: "", y: "", color: "" };
+  const sqData = {id: "", color: "" };
 
   const getSquareID = (id) => {
     setActivateModal(true);
-    sqData.x = parseInt(id) / 100;
-    sqData.y = parseInt(id) % 100;
+    sqData.id = parseInt(id);
   };
 
   const getSquareColor = (color) => {
-    sqData.color = color;
+    sqData.color = parseInt(color, 16);
   };
 
   const getModalBack = () => {
