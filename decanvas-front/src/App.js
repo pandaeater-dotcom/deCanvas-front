@@ -43,7 +43,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Grid arr={blah} className="grid" passSquareID={getSquareID}/>
+      <Grid arr={data} className="grid" passSquareID={getSquareID}/>
       <Modal
         modalActive={activateModal}
         passModalBack={getModalBack}

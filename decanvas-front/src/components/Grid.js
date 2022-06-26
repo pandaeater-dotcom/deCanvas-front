@@ -10,7 +10,7 @@ const Grid = (props) => {
 
   return (
     <div className={styles.grid}>
-      {props.arr.data.map((s) => (
+      {props.arr.map((s) => (
         <div id={`s${s.id}`} onClick={squareClickHandler} style={{backgroundColor:`${s.color}`}}></div>
       ))}
     </div>
