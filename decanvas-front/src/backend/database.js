@@ -20,8 +20,8 @@ const db = getFirestore(app);
 //     color: '#ffffff'
 // };
 
-const updateData = async (docNum, docData) => {
-    await setDoc(doc(db, "squareData", docNum), docData);    
+const updateData = (docNum, docData) => {
+    setDoc(doc(db, "squareData", docNum), docData);    
 }
 
 const getData = async (docNum) => {
@@ -38,13 +38,13 @@ const getData = async (docNum) => {
     }
 }
 
-const squareVals = {'data': []};
+// const squareVals = {'data': []};
 
-for (let i = 0; i < 10000; i++) {
-    const x = await getData(i);
-    squareVals.data.push(x)
-    console.log(i);
-}
+// for (let i = 0; i < 10000; i++) {
+//     const x = await getData(i);
+//     squareVals.data.push(x)
+//     console.log(i);
+// }
 
 // fs.writeFileSync('db.json', JSON.stringify(squareVals.data), 'utf-8');
 

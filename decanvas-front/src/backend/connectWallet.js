@@ -5,8 +5,8 @@ import { getAddress } from "ethers/lib/utils.js";
 import { updateData } from "./database.js";
 
 const ConnectWallet = (props) => {
-    console.log(props.sqId);
-    console.log(props.sqColor)
+    // console.log(props.sqId);
+    // console.log(props.sqColor)
     const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -81,6 +81,7 @@ const ConnectWallet = (props) => {
                 );
                 console.log(paintEvents);
                 let update = await updateData(parseInt(props.sqId),parseInt(props.sqColor).toString(16));
+                props.passTransactionStatus(true);
             } else {
                 console.log("Ethereum object doesn't exist!");
             }
