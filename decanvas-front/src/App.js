@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Grid from "./components/Grid";
-import Modal from "./components/Modal";
+import Grid from "./components/Grid.js";
+import Modal from "./components/Modal.js";
 import "./App.css";
 
 const App = () => {

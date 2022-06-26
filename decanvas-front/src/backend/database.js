@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {initializeApp } from '@firebase/app';
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCKMufhwObJ-qyxntnfP7QnVaoHB3tfvr4",
@@ -20,8 +20,24 @@ const docData = {
     color: '#ffffff'
 };
 
-for (let i = 18186; i < 40000; i++) {
-    await setDoc(doc(db, "squareData", `${i}`), docData);
-    console.log(`uploading ${i}`);
-    docData.id++;
+// for (let i = 18186; i < 40000; i++) {
+//     await setDoc(doc(db, "squareData", `${i}`), docData);
+//     console.log(`uploading ${i}`);
+//     docData.id++;
+// }
+
+const updateData = async (docNum, docData) => {
+    await setDoc(doc(db, "squareData", docNum), docData);    
+}
+
+const getData = async (docNum) => {
+    const docRef = doc(db, "squareData", docNum.toString());
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists) {
+        console.log("document data: ", docSnap.data());
+    }
+    else {
+        console.log('shit');
+    }
 }
