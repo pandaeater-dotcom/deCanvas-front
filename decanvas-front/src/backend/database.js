@@ -8,7 +8,7 @@ const firebaseConfig = {
     storageBucket: "decanvas-a79a6.appspot.com",
     messagingSenderId: "16465980497",
     appId: "1:16465980497:web:4be6c4ffe39acd04071c70"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 
@@ -16,8 +16,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const docData = {
-  id: 18186,
-  color: '#ffffff'
+    id: 18186,
+    color: '#ffffff'
 };
 
 for (let i = 18186; i < 40000; i++) {

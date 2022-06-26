@@ -1,5 +1,5 @@
 import Web3 from 'web3';
-import abi from '/abi.json'
+import abi from './abi.json'
 
 
 const web3 = new Web3('https://polygon-mumbai.g.alchemy.com/v2/14P4Hn_rrP0FgmgvwI2ndrHR-xDRvghb');
