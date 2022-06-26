@@ -1,0 +1,85 @@
+{
+    "_format": "hh-sol-artifact-1",
+    "contractName": "DeCanvas",
+    "sourceName": "contracts/DeCanvas.sol",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "painter",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "timestamp",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "colour",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "pixelID",
+                    "type": "uint256"
+                }
+            ],
+            "name": "Paint",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "allowPaint",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "pixelID",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_colour",
+                    "type": "uint256"
+                }
+            ],
+            "name": "paint",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "togglePainting",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "bytecode": "0x60806040526001600060146101000a81548160ff02191690831515021790555034801561002b57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506102c98061007b6000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80632896d1b41461004657806342a9393a146100505780639c15ce001461006c575b600080fd5b61004e61008a565b005b61006a600480360381019061006591906101ba565b61010e565b005b610074610192565b6040516100819190610214565b60405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146100e257600080fd5b600060149054906101000a900460ff1615600060146101000a81548160ff021916908315150217905550565b60011515600060149054906101000a900460ff1615151461012e57600080fd5b619c40821061013c57600080fd5b3373ffffffffffffffffffffffffffffffffffffffff167f7a16a5f0677f01221ac87f118fc2b394112c6aa3d82c6e25d730123e51296c834283856040516101869392919061022f565b60405180910390a25050565b600060149054906101000a900460ff1681565b6000813590506101b48161027c565b92915050565b600080604083850312156101cd57600080fd5b60006101db858286016101a5565b92505060206101ec858286016101a5565b9150509250929050565b6101ff81610266565b82525050565b61020e81610272565b82525050565b600060208201905061022960008301846101f6565b92915050565b60006060820190506102446000830186610205565b6102516020830185610205565b61025e6040830184610205565b949350505050565b60008115159050919050565b6000819050919050565b61028581610272565b811461029057600080fd5b5056fea2646970667358221220de01406f6b9e794aa92edc85b859961d0d410a0d4ff1db8b73f3196d6190da3464736f6c63430008000033",
+    "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80632896d1b41461004657806342a9393a146100505780639c15ce001461006c575b600080fd5b61004e61008a565b005b61006a600480360381019061006591906101ba565b61010e565b005b610074610192565b6040516100819190610214565b60405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146100e257600080fd5b600060149054906101000a900460ff1615600060146101000a81548160ff021916908315150217905550565b60011515600060149054906101000a900460ff1615151461012e57600080fd5b619c40821061013c57600080fd5b3373ffffffffffffffffffffffffffffffffffffffff167f7a16a5f0677f01221ac87f118fc2b394112c6aa3d82c6e25d730123e51296c834283856040516101869392919061022f565b60405180910390a25050565b600060149054906101000a900460ff1681565b6000813590506101b48161027c565b92915050565b600080604083850312156101cd57600080fd5b60006101db858286016101a5565b92505060206101ec858286016101a5565b9150509250929050565b6101ff81610266565b82525050565b61020e81610272565b82525050565b600060208201905061022960008301846101f6565b92915050565b60006060820190506102446000830186610205565b6102516020830185610205565b61025e6040830184610205565b949350505050565b60008115159050919050565b6000819050919050565b61028581610272565b811461029057600080fd5b5056fea2646970667358221220de01406f6b9e794aa92edc85b859961d0d410a0d4ff1db8b73f3196d6190da3464736f6c63430008000033",
+    "linkReferences": {},
+    "deployedLinkReferences": {}
+}
